@@ -77,7 +77,7 @@ body {
 .search-button, .lucky-button {
     padding: 10px 20px;
     background-color: #303134; /* Button background color */
-    color: #e8debd; /* Button text color */
+    color: #ffff; /* Button text color */
     font-size: 14px;
     border: 2px solid transparent; /* Transparent border by default */
     border-radius: 4px;

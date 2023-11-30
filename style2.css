@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #202124;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.top-bar {
+    width: 100%; /* Full width */
+    padding: 20px; /* Padding on all sides */
+    box-sizing: border-box; /* Includes padding in the width */
+    display: flex;
+    justify-content: space-between; /* Aligns children (logo and search box) to the right */
+    align-items: center; /* Centers children vertically */
+}
+
+.spacer {
+    flex: 1; /* Takes up all available space */
+}
+
+.logo-container {
+    height: 30px; /* Adjust based on your logo size */
+    width: 92px; /* Adjust based on your logo size */
+    margin-right: 5px; /* Space between the logo and the search box */
+    margin-left: 50px;
+    margin-top: -45px;
+}
+
+.search-bar-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.result-cluster {
+    display: flex;
+    align-items: center; /* Align the image vertically */
+    justify-content: flex-end; /* Align the image to the right */
+    margin-right: 10px; /* Add margin to the right of the cluster if needed */
+    margin-top: -20px; /* Add margin to the top of the cluster if needed */
+}
+
+.result-cluster img {
+    height: auto; /* Keep image aspect ratio */
+    width: auto; /* Adjust the width as necessary */
+}
+
+.search-box {
+    background-image: url('images/searchbar2.png');
+    background-size: cover;
+    background-position: center;
+    height: 65px; /* 50% larger than the original 44px */
+    width: 700Px; /* 50% larger than the original 540px */
+    margin-left: 45px;
+    position: relative;
+    margin-top: -50px;
+}
+
+.search-bar {
+    border: none;
+    outline: none;
+    width: calc(100% - 30px); /* Adjust the subtracted value to account for the increased size */
+    height: 100%;
+    background: transparent;
+    padding: 0 30px; /* Increase padding to align text inside the larger search bar */
+    font-size: 16.5px; /* Increase font size if necessary */
+    color: #ffffff;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns children (buttons) to the left */
+    gap: 5px; /* Reduces the gap between buttons */
+    margin-left: 225px;
+    width: auto; /* Adjust the width to fit the content */
+    margin-top: -60px; /* Negative margin to push up the buttons */
+}
+
+.button-container button {
+    background-color: #202124; /* Buttons are transparent */
+    border: 1px solid #3c4043; /* Borders are transparent by default */
+    border-radius: 50px; /* Rounded corners */
+    color: #fff; /* Text color */
+    padding: 8px 16px; /* Padding inside the buttons */
+    font-family: Arial, sans-serif; /* Font to match your site */
+    font-size: 14px;
+    cursor: pointer; /* Changes the cursor on hover */
+    outline: none; /* Removes the outline on focus */
+    line-height: normal; /* Adjust line-height to prevent large heights */
+}
+
+.button-container button:hover {
+    background-color: #5f6368; /* Grey background on hover */
+    border-color: #5f6368; /* Grey border on hover */
+    color: #e8eaed; /* Slightly lighter text color on hover for contrast */
+    text-decoration: none; /* Removes the underline on hover */
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #3c4043; /* Color of the horizontal line */
+    width: 100%; /* Ensures the line is the full width of the screen */
+    margin-top: 15px; /* Reduced space between the buttons and the line */
+    margin-bottom: 0; /* Remove any margin below if not needed */
+}
+
+.search-results {
+    width: 100%;
+    padding: 20px 100px; /* Adjust padding as needed */
+    box-sizing: border-box;
+    margin-left: 140px;
+    width: 80%;
+}
+
+.results-info {
+    color: #a1a1a1; /* Gray color for the results info text */
+    font-size: 15px;
+    margin-bottom: 10px; /* Space between info text and tabs */
+    margin-top: -25px;
+}
+
+.person-info-container {
+    display: flex;
+    align-items: center; /* Aligns the items vertically */
+    justify-content: space-between; /* Space between name/description and tabs */
+    margin-top: 20px;
+    margin-bottom: 20px; /* Space between this section and the next content section */
+    margin-right: 880px; /* ADJUST THIS FOR RESULT TABS SIDE TO SIDE MOVEMENT */
+}
+
+.person-info {
+    color: #fff; /* Text color */
+}
+
+.person-info h2 {
+    font-size: 26px; /* Large font size for the name */
+    margin: 0; /* Remove default margins */
+    font-weight: normal; /* Remove bold font weight */
+    margin-bottom: 8px; /* Space between name and description */
+    padding-right: 10px; /* Space between name and description */
+}
+
+.person-info p {
+    font-size: 14px; /* Smaller font size for the description */
+    color: #a1a1a1; /* Gray color for the description text */
+    margin: 0; /* Remove default margins */
+}
+
+
+.results-tabs {
+    display: flex;
+    gap: 10px; /* Space between tabs */
+    margin-top: 20px; /* Space between tabs and the next content section */
+}
+
+.tab {
+    background-color: #2f3b4e;
+    border: 1px solid #5f6368; /* Slightly lighter border */
+    border-radius: 50px; /* Rounded corners */
+    color: #fff; /* Text color */
+    padding: 8px 16px; /* Padding inside the buttons */
+    font-family: Arial, sans-serif; /* Font to match your site */
+    font-size: 14px;
+    cursor: pointer; /* Changes the cursor on hover */
+    outline: none; /* Removes the outline on focus */
+}
+
+.tab.active {
+    border: 1px solid #ffffff; /* Slightly lighter border */
+}
+
+.tab:hover {
+    background-color: #202124;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; /* Adjust the fraction units as necessary */
+    grid-template-rows: auto auto; /* Two rows, auto-sized */
+    gap: 20px; /* Adjust the gap size as necessary */
+    padding: 20px;
+    align-items: start; /* Align the top of the elements */
+}
+
+.profile-image {
+    width: 100%; /* Full width of the grid column */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any extra space under the image */
+}
+
+.large {
+    width: 200%; /* Full width of the grid column */
+    height: auto; /* Maintain aspect ratio */
+    grid-column: 1 / span 1; /* Take up the first column */
+    grid-row: 1 / span 2; /* Span two rows */
+    border-top-left-radius: 20px; /* Rounded corners on the top-left */
+    border-bottom-left-radius: 20px; /* Rounded corners on the bottom-left */
+}
+
+.small {
+    grid-column: 2 / span 1; /* Each small image takes up the second column */
+    grid-row: span 1; /* Each takes up one row */
+    border-radius: 0; /* No rounded corners for the inner sides */
+    margin-left: 125px; /* Space between small images */
+}
+
+.top {
+    border-top-right-radius: 20px; /* Rounded corner on the top-right */
+}
+
+.bottom {
+    grid-row: 2; /* Start at the second row */
+    border-bottom-right-radius: 20px; /* Rounded corner on the bottom-right */
+}
+

@@ -4,36 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
 <header class="top-bar">
-    <img src="images/logo.png" alt="Google Logo" class="google-logo">
-    <div class="search-box2">
-        <img src="images/searchbar.png" alt="Search Bar" class="search-bar-image">
+    <img src="images/logo.png" alt="Google Logo" class="logo-container">
+    <div class="search-box">
+        <img src="images/searchbar2.png" alt="Search Bar" class="search-bar-image">
         <input type="text" id="searchBar" class="search-bar">
-        <div class="search-icons"> <!-- Icons next to the search bar -->
-            <!-- Your mic and search icons here -->
-        </div>
+    </div>
+    <div class="spacer"></div> <!-- This div will push the result cluster to the right -->
+    <div class="result-cluster">
+        <img src="images/resultcluster.png" alt="Result Cluster">
     </div>
 </header>
-
-<nav class="navigation-tabs">
-    <ul>
-        <li class="active">All</li>
-        <li>Images</li>
-        <li>News</li>
-        <li>Videos</li>
-        <li>Maps</li>
-        <li>Books</li>
-        <li>Flights</li>
-        <li>Finance</li>
-    </ul>
-</nav>
-
+<div class="button-container">
+    <button type="button">Images</button>
+    <button type="button">News</button>
+    <button type="button">Videos</button>
+    <button type="button">Maps</button>
+    <button type="button">Books</button>
+    <button type="button">Flights</button>
+    <button type="button">Finance</button>
+</div>
+<hr> <!-- This is the horizontal break -->
 <main class="search-results">
-    <!-- This is where you'll put the content for the search results -->
+    <div class="results-info">
+        <p>About 3 results (0.47 seconds)</p>
+    </div>
+    <div class="person-info-container">
+        <div class="person-info">
+            <h2>Sam McCay</h2>
+            <p>Irish founder and builder</p>
+        </div>
+        <div class="results-tabs">
+            <button type="button" class="tab active">Overview</button>
+            <button type="button" class="tab">Books</button>
+            <button type="button" class="tab">Videos</button>
+            <!-- Add more tabs as needed -->
+        </div>
+    </div>
+    <div class="grid-container">
+        
+        <img src="images/me.jpeg" alt="Profile Image" class="profile-image large">
+        <img src="images/hiding.jpg" alt="Profile Image" class="profile-image small top">
+        <img src="images/minime.jpg" alt="Profile Image" class="profile-image small bottom">
+
+    </div>
+
 </main>
 
 </body>
