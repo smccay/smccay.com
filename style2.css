@@ -134,7 +134,7 @@ hr {
     justify-content: space-between; /* Space between name/description and tabs */
     margin-top: 20px;
     margin-bottom: 20px; /* Space between this section and the next content section */
-    margin-right: 880px; /* ADJUST THIS FOR RESULT TABS SIDE TO SIDE MOVEMENT */
+    margin-right: 600px; /* ADJUST THIS FOR RESULT TABS SIDE TO SIDE MOVEMENT, NEEDS TO BE MADE REACTIVE */
 }
 
 .person-info {
@@ -182,43 +182,86 @@ hr {
     background-color: #202124;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr; /* Adjust the fraction units as necessary */
-    grid-template-rows: auto auto; /* Two rows, auto-sized */
-    gap: 20px; /* Adjust the gap size as necessary */
-    padding: 20px;
-    align-items: start; /* Align the top of the elements */
+.content-container {
+    display: flex; /* This ensures that the child elements are placed side by side */
+    align-items: flex-start; /* Aligns items to the top of the container */
 }
 
-.profile-image {
-    width: 100%; /* Full width of the grid column */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any extra space under the image */
+.image-grid-wrapper {
+    flex: 0 0 40%; /* Adjust this to set the width of the image grid */
+    border-radius: 10px; /* Rounded edges */
+    overflow: hidden; /* Clips the images to the border radius */
+    margin-left: 0px; /* IMAGE GRID LOCATION/ NEEDS TO BE MADE REACTIVE */
 }
 
-.large {
-    width: 200%; /* Full width of the grid column */
-    height: auto; /* Maintain aspect ratio */
-    grid-column: 1 / span 1; /* Take up the first column */
-    grid-row: 1 / span 2; /* Span two rows */
-    border-top-left-radius: 20px; /* Rounded corners on the top-left */
-    border-bottom-left-radius: 20px; /* Rounded corners on the bottom-left */
+.image-grid-container {
+    display: flex;
+    width: 100%; /* Full width of its parent container .image-grid-wrapper */
+    height: auto; /* Height will be determined by the content */
 }
 
-.small {
-    grid-column: 2 / span 1; /* Each small image takes up the second column */
-    grid-row: span 1; /* Each takes up one row */
-    border-radius: 0; /* No rounded corners for the inner sides */
-    margin-left: 125px; /* Space between small images */
+.image-grid-item.full-height {
+    width: 50%; /* Adjust this to change the width of the left image */
+    height: auto; /* Height will scale to maintain the aspect ratio */
 }
 
-.top {
-    border-top-right-radius: 20px; /* Rounded corner on the top-right */
+.image-stack {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Adjust this to change the width of the right stacked images */
 }
 
-.bottom {
-    grid-row: 2; /* Start at the second row */
-    border-bottom-right-radius: 20px; /* Rounded corner on the bottom-right */
+.image-stack .image-grid-item {
+    height: 50%; /* Each image will take half the height of their container */
 }
+
+.info-video-container {
+    display: flex; /* Align children in a row */
+    align-items: stretch; /* Stretch children to fill the container height */
+    margin-right: 80px;
+}
+
+.info-box.full-height {
+    flex: 1.5; /* Box 1 takes more space */
+    background-color: #2f3b4e;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.half-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    flex: 0.75; /* Each half-container takes less space */
+}
+
+.info-box {
+    background-color: #2f3b4e;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.info-box.half-height, .video-box {
+    flex: 1; /* Each takes half of the height of their container */
+}
+
+.video-box {
+    /* Styling for the video box */
+    margin-left: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
+
+
 
