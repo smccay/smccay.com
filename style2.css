@@ -182,14 +182,47 @@ hr {
     background-color: #202124;
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Place it behind the content */
+    background: linear-gradient(to top, #242832, #202124); /* Gradient background */
+}
+
 .content-container {
     display: flex; /* This ensures that the child elements are placed side by side */
     align-items: flex-start; /* Aligns items to the top of the container */
+    display: flex;
+    align-items: stretch; /* Stretch children to fill the height */
+}
+
+.content-container > * {
+    flex: 1; /* Adjust the flex value to distribute space as needed */
+    height: 100%; /* Make sure each child fills the container */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Stack children vertically */
+        padding-left: 5%; /* Less padding on smaller screens */
+        padding-right: 5%; /* Less padding on smaller screens */
+    }
+    
+    .image-grid-wrapper, .info-video-container {
+        width: 100%; /* Full width on smaller screens */
+    }
 }
 
 .image-grid-wrapper {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 40%; /* Adjust this to set the width of the image grid */
-    border-radius: 10px; /* Rounded edges */
+    border-radius: 20px; /* Rounded edges */
     overflow: hidden; /* Clips the images to the border radius */
     margin-left: 0px; /* IMAGE GRID LOCATION/ NEEDS TO BE MADE REACTIVE */
 }
@@ -198,6 +231,10 @@ hr {
     display: flex;
     width: 100%; /* Full width of its parent container .image-grid-wrapper */
     height: auto; /* Height will be determined by the content */
+}
+/* Styles for each child of content-container to make them the same height */
+.image-grid-container, .info-box, .video-box {
+    flex: 1;
 }
 
 .image-grid-item.full-height {
@@ -216,52 +253,64 @@ hr {
 }
 
 .info-video-container {
-    display: flex; /* Align children in a row */
-    align-items: stretch; /* Stretch children to fill the container height */
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: 2fr 1fr 1fr; /* Three equal columns */
+    grid-template-areas: 
+        "fullheight half half"
+        "fullheight video video"; /* Define the areas */
     margin-right: 80px;
 }
 
 .info-box.full-height {
-    flex: 1.5; /* Box 1 takes more space */
+    grid-area: fullheight; /* Assign to grid area */
     background-color: #2f3b4e;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
-    margin-bottom: 0;
     margin-right: 10px;
-    margin-left: 20px;
+    margin-bottom: 12.5px;
 }
 
 .half-container {
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    flex: 0.75; /* Each half-container takes less space */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns for Box 2 and Box 3 */
+    grid-area: half; /* Assign to grid area */
 }
 
 .info-box {
     background-color: #2f3b4e;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.info-box.half-height, .video-box {
-    flex: 1; /* Each takes half of the height of their container */
+.info-box.half-height:first-child {
+    grid-column: 1; /* Box 2 in the first column */
+}
+
+.info-box.half-height:last-child {
+    grid-column: 2; /* Box 3 in the second column */
 }
 
 .video-box {
-    /* Styling for the video box */
+    grid-area: video; /* Assign to grid area */
     margin-left: 10px;
+    margin-right: 10px; 
+    margin-bottom: 10px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
+    
 }
 
 
 
+
+
+/* Rest of your styles remain unchanged */
 
